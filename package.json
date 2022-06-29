@@ -25,6 +25,5 @@
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "webpack-pwa-manifest": "^4.3.0"
   }
 }
