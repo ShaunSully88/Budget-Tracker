@@ -14,7 +14,7 @@ request.onsuccess = function(event) {
 
     db = event.target.result;
 
-    if(navigator.onLine) {
+    if(navigator.online) {
         uploadBudget();
     }
 };
@@ -36,9 +36,9 @@ function uploadBudget() {
     const transaction = db.transaction(['new_budget'], 'readwrite');
     const budgetObjectStore = transaction.objectStore('new_budget');
     const getTransactions = budgetObjectStore.getAll();
-    getTransactions.onsuccess = function () {
+    getTransactions.onsuccess = function() {
       if (getTransactions.result.length > 0) {
-        fetch('/api/transaction/bulk', {
+        fetch('/api/transaction', {
           method: "POST",
           body: JSON.stringify(getTransactions.result),
           headers: {
